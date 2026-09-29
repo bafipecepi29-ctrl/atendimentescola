@@ -1,1 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola Padilha LTDA - Prepare-se para conquistar sua CNH</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --primary-dark: #0a58ca;
+            --secondary-color: #6c757d;
+            --dark-color: #1a1a2e;
+            --light-bg: #f8f9fa;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark-color) !important;
+        }
+
+        .navbar-brand span {
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #555 !important;
+            margin: 0 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%);
+            padding: 6rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(13, 110, 253, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 540px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-checklist li {
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-checklist li i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(13, 110, 253, 0.25);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark-color);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .about-section {
+            background: var(--light-bg);
+        }
+
+        .about-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+        }
+
+        .about-checklist li {
+            padding: 0.6rem 0;
+            font-weight: 500;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-checklist li i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            height: 100%;
+        }
+
+        .stat-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+        }
+
+        .step-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--dark-color);
+            padding: 1.25rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.05);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+
+        .accordion-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px !important;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .accordion-body {
+            color: #666;
+            line-height: 1.7;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #16213e 100%);
+            color: #fff;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            border-color: #25d366;
+            color: #fff;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+            border-color: #1ebe5d;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .footer {
+            background: #0f0f1a;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer p, .footer li {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-registration {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-registration p {
+            font-size: 0.82rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-registration strong {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .hero-section {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero-image-placeholder {
+                height: 280px;
+                margin-top: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .section-padding {
+                padding: 3.5rem 0;
+            }
+
+            .cta-section h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Auto Escola <span>Padilha</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como-iniciar">Como Iniciar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary w-100 w-lg-auto" href="#contato">Fale Conosco</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="hero-badge">Formação de Condutores</span>
+                    <h1 class="hero-title">Prepare-se para conquistar sua CNH.</h1>
+                    <p class="hero-subtitle">
+                        A Auto Escola Padilha LTDA oferece orientação e preparação para quem está começando ou avançando no processo de habilitação.
+                    </p>
+                    <ul class="hero-checklist mb-4">
+                        <li><i class="bi bi-check-circle-fill"></i> Primeira habilitação</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Aulas teóricas</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Aulas práticas</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Preparação para avaliações</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Orientação durante o processo</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary btn-lg">Comece agora <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-placeholder">
+                        <div class="text-center">
+                            <i class="bi bi-car-front-fill" style="font-size: 5rem; display: block; margin-bottom: 1rem;"></i>
+                            <span>Sua Jornada Começa Aqui</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section-padding" id="servicos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Serviços para sua formação</h2>
+                <p class="section-subtitle">Conheça as principais opções de atendimento da Auto Escola Padilha.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-car-front"></i></div>
+                        <h3>Aulas Práticas</h3>
+                        <p>Treinamento para desenvolver segurança, controle e confiança na condução do veículo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-book"></i></div>
+                        <h3>Aulas Teóricas</h3>
+                        <p>Conteúdos de apoio para compreender as regras e os fundamentos do trânsito.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-person-badge"></i></div>
+                        <h3>Primeira Habilitação</h3>
+                        <p>Orientação para quem deseja iniciar o processo para obter a CNH.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-bicycle"></i></div>
+                        <h3>Categorias</h3>
+                        <p>Consulte as categorias de habilitação e escolha a formação adequada ao seu objetivo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-pencil-square"></i></div>
+                        <h3>Preparação</h3>
+                        <p>Reforce seus conhecimentos e organize sua preparação para as avaliações.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-chat-dots"></i></div>
+                        <h3>Atendimento</h3>
+                        <p>Fale com a equipe para tirar dúvidas sobre matrícula, aulas e etapas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section-padding about-section" id="sobre">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="hero-badge">Sobre o CFC</span>
+                    <h2 class="section-title">Mais clareza em cada etapa da sua formação.</h2>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        A Auto Escola Padilha LTDA atua na formação e preparação de condutores, buscando oferecer informações e acompanhamento ao longo da jornada para a habilitação.
+                    </p>
+                    <ul class="about-checklist">
+                        <li><i class="bi bi-check-circle-fill"></i> Atendimento e orientação</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Formação teórica e prática</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Preparação para avaliações</li>
+                    </ul>
+                    <div class="row g-3 mt-4">
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h4>CNH</h4>
+                                <p>Foco na sua formação</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <h4>CFC</h4>
+                                <p>Orientação especializada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4 p-lg-5 bg-white rounded-4 shadow-sm">
+                        <h3 class="fw-bold mb-3" style="color: var(--dark-color);">Comece com o próximo passo</h3>
+                        <p class="text-muted mb-4" style="line-height: 1.7;">
+                            Entre em contato para consultar categorias disponíveis, condições de matrícula, horários e demais informações sobre a formação.
+                        </p>
+                        <a href="#contato" class="btn btn-primary">Falar com a equipe <i class="bi bi-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Iniciar -->
+    <section class="section-padding" id="como-iniciar">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Como iniciar sua jornada</h2>
+                <p class="section-subtitle">Entenda de forma simples os primeiros passos.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h4>Contato</h4>
+                        <p>Converse com a equipe e tire suas dúvidas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h4>Escolha</h4>
+                        <p>Confira categorias e opções disponíveis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h4>Matrícula</h4>
+                        <p>Receba as orientações para iniciar o processo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h4>Formação</h4>
+                        <p>Faça as aulas e prepare-se para as avaliações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding about-section" id="faq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Perguntas frequentes</h2>
+                <p class="section-subtitle">Informações iniciais para ajudar você.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Como começar a primeira habilitação?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Entre em contato com a Auto Escola Padilha para conhecer as condições de matrícula e as etapas necessárias.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    O CFC oferece aulas teóricas e práticas?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Consulte a equipe sobre as aulas e categorias disponíveis para sua formação.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Quais categorias estão disponíveis?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    As categorias podem variar. Fale com o atendimento para confirmar as opções disponíveis.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Como posso solicitar informações?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Use o botão de WhatsApp na seção de contato para falar com a equipe.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contato -->
+    <section class="cta-section" id="contato">
+        <div class="container text-center position-relative">
+            <h2>Está pronto para começar?</h2>
+            <p>Fale com a Auto Escola Padilha LTDA e saiba mais sobre sua formação de condutor.</p>
+            <a href="https://wa.me/555133641207" target="_blank" class="btn btn-whatsapp btn-lg">
+                <i class="bi bi-whatsapp me-2"></i> Falar pelo WhatsApp
+            </a>
+            <div class="mt-4">
+                <p class="mb-1" style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                    <i class="bi bi-telephone me-2"></i> (51) 3364-1207
+                </p>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                    <i class="bi bi-envelope me-2"></i> societario@formatocontabil.com.br
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Auto Escola Padilha LTDA</h5>
+                    <p>Formação e preparação de condutores com orientação especializada em cada etapa da sua jornada para a habilitação.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contatos</h5>
+                    <p><i class="bi bi-envelope me-2"></i> societario@formatocontabil.com.br</p>
+                    <p><i class="bi bi-telephone me-2"></i> (51) 3364-1207</p>
+                    <p class="mt-3"><strong>Localização:</strong></p>
+                    <p>Avenida Francisco Silveira Bitencourt, 285<br>Sarandi - Porto Alegre/RS<br>CEP: 91150-010</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Informações de Registro</h5>
+                    <div class="footer-registration">
+                        <p><strong>CNPJ:</strong> 67.059.783/0001-50</p>
+                        <p><strong>Razão Social:</strong> Auto Escola Padilha LTDA</p>
+                        <p><strong>Data da Abertura:</strong> 29/05/2026</p>
+                        <p><strong>Porte:</strong> Micro Empresa</p>
+                        <p><strong>Natureza Jurídica:</strong> Sociedade Empresária Limitada</p>
+                        <p><strong>Opção pelo MEI:</strong> Não</p>
+                        <p><strong>Opção pelo Simples:</strong> Sim</p>
+                        <p><strong>Data opção Simples:</strong> 29/05/2026</p>
+                        <p><strong>Capital Social:</strong> R$ 100.000,00</p>
+                        <p><strong>Tipo:</strong> Matriz</p>
+                        <p><strong>Situação:</strong> Ativa</p>
+                        <p><strong>Data Situação Cadastral:</strong> 29/05/2026</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="mb-2 mb-md-0">© 2026 Auto Escola Padilha LTDA. Todos os direitos reservados.</p>
+                <div>
+                    <a href="#" class="me-3">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
